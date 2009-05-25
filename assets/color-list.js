@@ -15,8 +15,9 @@ $(document).ready(function() {
 			// Add styles to the SPAN 
 			$td.children('span:first-child').css({
 				'background-color': td_data, 
-				'padding' : '4px 11px',
-				'margin-right' : '5px'
+				'padding' : '3px 10px',
+				'margin-right' : '5px',
+				'border' : 'solid 1px #eaeaea'
 			});
 
 		}

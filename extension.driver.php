@@ -4,10 +4,10 @@
 	
 		public function about(){
 			return array('name' => 'Field: Color Chooser',
-						 'version' => '0.9',
-						 'release-date' => '2009-05-24',
+						 'version' => '1.0',
+						 'release-date' => '2009-05-25',
 						 'author' => array('name' => 'Josh Nichols',
-										   'website' => 'http://www.joshnichols.com.com',
+										   'website' => 'http://www.joshnichols.com',
 										   'email' => 'mrblank@gmail.com')
 				 		);
 		}

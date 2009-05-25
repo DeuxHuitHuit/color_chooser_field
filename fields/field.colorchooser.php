@@ -77,10 +77,10 @@
 
 				function displayPublishPanel(&$wrapper, $data=NULL, $flagWithError=NULL, $fieldnamePrefix=NULL, $fieldnamePostfix=NULL){
 					
-					$this->_engine->Page->addScriptToHead(URL . '/extensions/color_chooser_field/assets/jquery.js', 75);
-					$this->_engine->Page->addScriptToHead(URL . '/extensions/color_chooser_field/assets/farbtastic.js', 80);
-					$this->_engine->Page->addScriptToHead(URL . '/extensions/color_chooser_field/assets/color-chooser.js', 85);
-					$this->_engine->Page->addStylesheetToHead(URL . '/extensions/color_chooser_field/assets/farbtastic.css', 'screen', 90);
+					$this->_engine->Page->addScriptToHead(URL . '/extensions/color_chooser_field/assets/jquery.js', 175);
+					$this->_engine->Page->addScriptToHead(URL . '/extensions/color_chooser_field/assets/farbtastic.js', 180);
+					$this->_engine->Page->addScriptToHead(URL . '/extensions/color_chooser_field/assets/color-chooser.js', 185);
+					$this->_engine->Page->addStylesheetToHead(URL . '/extensions/color_chooser_field/assets/farbtastic.css', 'screen', 190);
 					
 					$value = $data['value'];		
 					$label = Widget::Label($this->get('label'));
@@ -98,39 +98,33 @@
 					$label->appendChild(Widget::Input('fields[filter]'.($fieldnamePrefix ? '['.$fieldnamePrefix.']' : '').'['.$this->get('id').']'.($fieldnamePostfix ? '['.$fieldnamePostfix.']' : ''), ($data ? General::sanitize($data) : NULL)));	
 					$wrapper->appendChild($label);
 
-					$wrapper->appendChild(new XMLElement('p', 'Accepts either a 32 character hash, or plain text value. If plain text, it will be hashed before comparing.', array('class' => 'help')));
+					$wrapper->appendChild(new XMLElement('p', 'Accepts a 6 character color hex value beginning with \'#\'.', array('class' => 'help')));
 
 				}
 
 				public function checkPostFieldData($data, &$message, $entry_id=NULL){
 					$message = NULL;
 
-					if($this->get('required') == 'yes' && strlen($data) == 0){
+					if($this->get('required') == 'yes' && strlen($data) == 0 ){
 						$message = "This is a required field.";
 						return self::__MISSING_FIELDS__;
 					}
+					// The Farbtastic needs a value in the field to work. '#' is the default value placed by the js.
+					if($this->get('required') == 'yes' && $data == "#" ){
+						$message = "This is a required field.";
+						return self::__MISSING_FIELDS__;
+					}
+					// Make sure the value entered is a valid hex color, '#' or '' is OK
+					if($data !== '#' && strlen($data) !== 0 ){
+						if(!preg_match("/^#[0-9a-f]{6}$/i" , $data)){
+							$message = "This is not a valid 6 character hex color value.";
+							return self::__MISSING_FIELDS__;
+						}
+					}
 
-					return self::__OK__;		
+					return self::__OK__;
+							
 				}
-				
-				/* Hashit code that needs to be removed */
-				private static function __hashit($data){
-
-					if(strlen($data) == 0) return;
-					elseif(strlen($data) != 7) return $data;
-
-					return $data;
-				}
-
-				public function processRawFieldData($data, &$status, $simulate=false, $entry_id=NULL){
-
-					$status = self::__OK__;
-
-					return array(
-						'value' => self::__hashit($data),
-					);
-				}
-
 
 				public function createTable(){
 
@@ -147,16 +141,6 @@
 
 					);
 				}		
-
-				function buildDSRetrivalSQL($data, &$joins, &$where, $andOperation=false){
-
-					$data[0] = self::__hashit($data[0]);
-
-					parent::buildDSRetrivalSQL($data, $joins, $where, $andOperation);
-
-					return true;
-
-				}
 
 			}
 

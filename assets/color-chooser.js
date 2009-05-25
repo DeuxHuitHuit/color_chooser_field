@@ -7,13 +7,13 @@ $(document).ready(function() {
 	var p = $('#picker').css('opacity', 0.25);
 	var selected;
 	$('.colorwell')
-	.each(function () { f.linkTo(this); $(this).css('opacity', 0.75); })
+	.each(function () { f.linkTo(this); $(this); })
 	.focus(function() {
 		if (selected) {
-			$(selected).css('opacity', 0.75).removeClass('colorwell-selected');
+			$(selected).removeClass('colorwell-selected');
 		}
 		f.linkTo(this);
 		p.css('opacity', 1);
-		$(selected = this).css('opacity', 1).addClass('colorwell-selected');
+		$(selected = this).addClass('colorwell-selected');
 	});
 });
