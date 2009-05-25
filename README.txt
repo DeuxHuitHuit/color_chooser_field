@@ -16,7 +16,7 @@ Requirements: Symphony 2.02 or greater.
 
 3. You can now add a "Color Chooser" field to your sections.
 
-4. On the entry edit screen, it uses the Farbtastic Color Picker (acko.net/dev/farbtastic) to visually select a color and place its hex value into the field. 
+4. On the entry edit screen, it uses the Farbtastic Color Picker (http://acko.net/dev/farbtastic) to visually select a color and place its hex value into the field. 
 
 See a screencast of the field in action: http://vimeo.com/4802900
 
