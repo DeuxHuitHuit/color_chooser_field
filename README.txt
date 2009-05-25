@@ -18,6 +18,8 @@ Requirements: Symphony 2.02 or greater.
 
 4. On the entry edit screen, it uses the Farbtastic Color Picker (acko.net/dev/farbtastic) to visually select a color and place its hex value into the field. 
 
+See a screencast of the field in action: http://vimeo.com/4802900
+
 [TO DO]
 
 Before the official 1.0 release:
