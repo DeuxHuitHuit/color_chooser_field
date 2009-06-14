@@ -11,13 +11,13 @@ $(document).ready(function() {
 		// Validate hex length
 		if(td_data.length == 7 || td_data.length == 4){
 			// Add a SPAN for the color box
-			$td.prepend('<span> </span>');	
+			$td.prepend('<span>\&nbsp;</span>');	
 			// Add styles to the SPAN 
 			$td.children('span:first-child').css({
 				'background-color': td_data, 
-				'padding' : '3px 10px',
 				'margin-right' : '5px',
-				'border' : 'solid 1px #eaeaea'
+				'border' : 'solid 1px #eaeaea',
+				'padding' : '3px 8px'
 			});
 
 		}

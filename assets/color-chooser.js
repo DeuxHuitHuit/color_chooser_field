@@ -1,7 +1,7 @@
 $(document).ready(function() {
 	//Inserts IDs and classes where needed for farbtastic
 	$('.color-chooser:first').before('<div id="picker"></div>');
-	$('.color-chooser input').attr({class : "colorwell"});
+	$('.color-chooser input').addClass('colorwell');
 	//Regular farbtastic statement
 	var f = $.farbtastic('#picker');
 	var p = $('#picker').css('opacity', 0.25);
