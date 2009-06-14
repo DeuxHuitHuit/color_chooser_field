@@ -1,13 +1,13 @@
 
-##Color Chooser Field
+#Color Chooser Field
 
-Version: 1.0.1
-Author: Josh Nichols (mrblank@gmail.com)
-Build Date: 2009-05-24
-Requirements: Symphony 2.02
+Version: 1.0.1 <br/>
+Author: Josh Nichols (mrblank@gmail.com)<br/>
+Build Date: 2009-05-24<br/>
+Requirements: Symphony 2.02<br/>
 
 
-###INSTALLATION
+####Installation
 
 1. Upload the 'color\_chooser\_field' folder in this archive to your Symphony 'extensions' folder.
 
@@ -20,7 +20,7 @@ Requirements: Symphony 2.02
 See a screencast of the field in action: [http://vimeo.com/4802900](http://vimeo.com/4802900)
 
 
-###CHANGE LOG
+####Change log
 
 1.0.1
 
