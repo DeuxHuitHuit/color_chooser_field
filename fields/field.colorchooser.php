@@ -77,10 +77,9 @@
 
 				function displayPublishPanel(&$wrapper, $data=NULL, $flagWithError=NULL, $fieldnamePrefix=NULL, $fieldnamePostfix=NULL){
 					
-					$this->_engine->Page->addScriptToHead(URL . '/extensions/color_chooser_field/assets/jquery.js', 175);
-					$this->_engine->Page->addScriptToHead(URL . '/extensions/color_chooser_field/assets/farbtastic.js', 180);
-					$this->_engine->Page->addScriptToHead(URL . '/extensions/color_chooser_field/assets/color-chooser.js', 185);
-					$this->_engine->Page->addStylesheetToHead(URL . '/extensions/color_chooser_field/assets/farbtastic.css', 'screen', 190);
+					//$this->_engine->Page->addScriptToHead(URL . '/extensions/color_chooser_field/assets/farbtastic.js', 180);
+					//$this->_engine->Page->addScriptToHead(URL . '/extensions/color_chooser_field/assets/color-chooser.js', 185);
+					//$this->_engine->Page->addStylesheetToHead(URL . '/extensions/color_chooser_field/assets/farbtastic.css', 'screen', 190);
 					
 					$value = $data['value'];		
 					$label = Widget::Label($this->get('label'));

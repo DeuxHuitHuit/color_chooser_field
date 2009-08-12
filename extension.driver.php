@@ -4,11 +4,12 @@
 	
 		public function about(){
 			return array('name' => 'Field: Color Chooser',
-						 'version' => '1.0',
+						 'version' => '1.1',
 						 'release-date' => '2009-05-25',
 						 'author' => array('name' => 'Josh Nichols',
 										   'website' => 'http://www.joshnichols.com',
-										   'email' => 'mrblank@gmail.com')
+										   'email' => 'mrblank@gmail.com'),
+						 'description'	=> 'A custom field extension for choosing colors.'
 				 		);
 		}
 		
@@ -40,8 +41,9 @@
 		public function initaliseAdminPageHead($context) {
 			$page = $context['parent']->Page;
 
-            $page->addScriptToHead(URL . '/extensions/color_chooser_field/assets/jquery.js', 3466701);
-            $page->addScriptToHead(URL . '/extensions/color_chooser_field/assets/color-list.js', 3466703);
+            $page->addScriptToHead(URL . '/extensions/color_chooser_field/assets/farbtastic.js', 3001);
+            $page->addScriptToHead(URL . '/extensions/color_chooser_field/assets/color-chooser.js', 3002);
+            $page->addStylesheetToHead(URL . '/extensions/color_chooser_field/assets/farbtastic.css', 'screen', 3003);
 		}
 			
 	}

@@ -30,5 +30,9 @@
   overflow: hidden; 
   background: url(marker.png) no-repeat;
 }
-
-#picker { margin:0 0 1em 0; }
+#picker-container { z-index:100; width:197px; height:197px; position:absolute; top:24px; left:-31px; background-color: transparent; }
+#picker { padding:20px; background-color:#353530; width:197px; height:197px;
+	-moz-border-radius: 10px; -webkit-border-radius: 10px; -moz-box-shadow: 2px 2px 10px #444; -webkit-box-shadow: 2px 2px 10px #444; }
+#picker-top { height:16px; background:transparent url(arrow.png) 7px 0 no-repeat; }
+.color-chooser-container { margin-left:23px; position:relative; }
+.color-icon { width:20px; height:22px; background:transparent url(color_wheel.png) center center no-repeat; margin:2px 0 0 -24px; display:block; float:left; }
