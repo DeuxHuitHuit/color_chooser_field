@@ -4,8 +4,8 @@
 	
 		public function about(){
 			return array('name' => 'Field: Color Chooser',
-						 'version' => '1.1',
-						 'release-date' => '2009-05-25',
+						 'version' => '1.2',
+						 'release-date' => '2009-11-20',
 						 'author' => array('name' => 'Josh Nichols',
 										   'website' => 'http://www.joshnichols.com',
 										   'email' => 'mrblank@gmail.com'),
@@ -41,9 +41,10 @@
 		public function initaliseAdminPageHead($context) {
 			$page = $context['parent']->Page;
 
-            $page->addScriptToHead(URL . '/extensions/color_chooser_field/assets/farbtastic.js', 3001);
-            $page->addScriptToHead(URL . '/extensions/color_chooser_field/assets/color-chooser.js', 3002);
-            $page->addStylesheetToHead(URL . '/extensions/color_chooser_field/assets/farbtastic.css', 'screen', 3003);
+            $page->addScriptToHead(URL . '/extensions/color_chooser_field/assets/jquery.farbtastic.js', 3001);
+            $page->addScriptToHead(URL . '/extensions/color_chooser_field/assets/jquery.tools.min.js', 3002);
+			$page->addScriptToHead(URL . '/extensions/color_chooser_field/assets/jquery.color-chooser.js', 3003);
+            $page->addStylesheetToHead(URL . '/extensions/color_chooser_field/assets/farbtastic.css', 'screen', 3004);
 		}
 			
 	}
