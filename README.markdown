@@ -36,7 +36,6 @@ See a screencast of the field in action: [http://www.vimeo.com/6062027](http://w
 * Color chooser is now hidden until field is in focus, taking up less screen real estate -- and looking cooler.
 
 
-
 1.0.1
 
 * Fixed duplicate links to JavaScript files.
