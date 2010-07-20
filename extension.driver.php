@@ -4,8 +4,8 @@
 	
 		public function about(){
 			return array('name' => 'Field: Color Chooser',
-						 'version' => '1.2',
-						 'release-date' => '2009-11-20',
+						 'version' => '1.2.1',
+						 'release-date' => '2010-07-19',
 						 'author' => array('name' => 'Josh Nichols',
 										   'website' => 'http://www.joshnichols.com',
 										   'email' => 'mrblank@gmail.com'),

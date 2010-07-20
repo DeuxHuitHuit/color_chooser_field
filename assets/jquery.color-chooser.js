@@ -28,7 +28,7 @@
 
 		/*----Color chooser field----*/
 		//If page has a color chooser field, call the Farbtastic function
-		if($('.color-chooser').length > 0){
+		if($('label.color-chooser').length > 0){
 			//Insert elements for Farbtastic to work with 
 			$('.color-chooser input').each (function() {
 				$(this).wrap('<div class="color-chooser-container"></div>');

@@ -1,9 +1,9 @@
 
 #Color Chooser Field
 
-Version: 1.2 <br/>
+Version: 1.2.1 <br/>
 Author: Josh Nichols (mrblank@gmail.com)<br/>
-Build Date: 2009-05-24<br/>
+Build Date: 2010-07-19<br/>
 Requirements: Symphony 2.0.5<br/>
 
 
@@ -22,6 +22,10 @@ See a screencast of the field in action: [http://www.vimeo.com/6062027](http://w
 
 ####Change log
 
+1.2.1
+
+* Updated to display properly with Symphony 2.0.7
+
 1.2
 
 * Now uses the [jQuery Tools Tooltip](http://flowplayer.org/tools/demos/tooltip/index.html) plugin so the color picker will not extend outside the browser window.
@@ -34,6 +38,7 @@ See a screencast of the field in action: [http://www.vimeo.com/6062027](http://w
 * Now uses compatibility mode so it will work with other frameworks.
 
 * Color chooser is now hidden until field is in focus, taking up less screen real estate -- and looking cooler.
+
 
 
 1.0.1
