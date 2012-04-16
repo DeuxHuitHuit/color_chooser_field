@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension id="color_chooser_field" status="released" xmlns="http://symphony-cms.com/schemas/extension/1.0">
+	<name>Field: Color Chooser</name>
+	<description>Visually choose a hex color value</description>
+	<repo type="github">https://github.com/MrBlank/color_chooser_field</repo>
+	<url type="discuss">http://symphony-cms.com/discuss/thread/21375/</url>
+	<types>
+		<type>Field Types</type>
+	</types>
+	<authors>
+		<author>
+			<name github="MrBlank" symphony="MrBlank">Josh Nichols</name>
+			<website>http://www.joshnichols.com</website>
+		</author>
+	</authors>
+	<media>
+		<item type="image" url="http://symphonyextensions.com/MrBlank/color_chooser_field/media/color_chooser_field.png">Field: Color Chooser: Visually choose a hex color value</item>
+	</media>
+	<releases>
+		<release version="1.2.1" date="2010-07-19" min="2.0.5" />
+	</releases>
+</extension>
