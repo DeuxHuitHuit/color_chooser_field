@@ -7,8 +7,8 @@
 	Class fieldColorChooser extends Field
 	{
 
-		function __construct(){
-			parent::__construct();
+		function __construct(&$parent){
+			parent::__construct($parent);
 			$this->_name = 'Color Chooser';
 			$this->_required = true;
 			$this->set('required', 'yes');
@@ -128,6 +128,44 @@
 
 		}
 
+		public function getDecimalValue($data) {
+			return hexdec($data);
+		}
+		
+		public function splitToDecimal($data) {
+			$rgb[0] = $this->getDecimalValue(substr($data["value"],1,2));
+			$rgb[1] = $this->getDecimalValue(substr($data["value"],3,2));
+			$rgb[2] = $this->getDecimalValue(substr($data["value"],5,2));
+			return $rgb;
+		}
+		/**
+		 * Append the formatted XML output of this field as utilized as a data source.
+		 *
+		 * @param XMLElement $wrapper
+		 *	the XML element to append the XML representation of this to.
+		 * @param array $data
+		 *	the current set of values for this field. the values are structured as
+		 *	for displayPublishPanel.
+		 * @param boolean $encode (optional)
+		 *	flag as to whether this should be html encoded prior to output. this
+		 *	defaults to false.
+		 * @param string $mode
+		 *	 A field can provide ways to output this field's data. For instance a mode
+		 *  could be 'items' or 'full' and then the function would display the data
+		 *  in a different way depending on what was selected in the datasource
+		 *  included elements.
+		 * @param integer $entry_id (optional)
+		 *	the identifier of this field entry instance. defaults to null.
+		 */
+		public function appendFormattedElement(XMLElement &$wrapper, $data, $encode = false, $mode = null, $entry_id = null) {
+			$rgb = $this->splitToDecimal($data);
+			$newItem = new XMLElement($this->get('element_name'), ($encode ? General::sanitize($this->prepareTableValue($data, null, $entry_id)) : $this->prepareTableValue($data, null, $entry_id)));
+			$newItem->setAttribute("r",$rgb[0]);
+			$newItem->setAttribute("g",$rgb[1]);
+			$newItem->setAttribute("b",$rgb[2]);
+			$wrapper->appendChild($newItem);
+		}
+		
 		public function createTable(){
 
 			return Symphony::Database()->query(
