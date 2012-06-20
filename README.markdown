@@ -23,8 +23,4 @@ See a screencast of the field in action: [http://www.vimeo.com/6062027](http://w
 
 The field return
 
-<<<<<<< HEAD
 ```<FieldName r="decimalRedValue" g="decimalGreenValue", b="decimalBlueValue" has-color="Yes|No">#HexValue</FieldName>```
-=======
-`<FieldName r="decimalRedValue" g="decimalGreenValue", b="decimalBlueValue" has-color="Yes|No">#HexValue</FieldName>
->>>>>>> aa5cfa051b2b01a77ee390563b019d5a57876e7f
