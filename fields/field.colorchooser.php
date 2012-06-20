@@ -133,9 +133,9 @@
 		}
 		
 		public function splitToDecimal($data) {
-			$rgb[0] = $this->getDecimalValue(substr($data["value"],1,2));
-			$rgb[1] = $this->getDecimalValue(substr($data["value"],3,2));
-			$rgb[2] = $this->getDecimalValue(substr($data["value"],5,2));
+			$rgb[0] = $this->getDecimalValue(substr($data,1,2));
+			$rgb[1] = $this->getDecimalValue(substr($data,3,2));
+			$rgb[2] = $this->getDecimalValue(substr($data,5,2));
 			return $rgb;
 		}
 		/**
@@ -158,11 +158,19 @@
 		 *	the identifier of this field entry instance. defaults to null.
 		 */
 		public function appendFormattedElement(XMLElement &$wrapper, $data, $encode = false, $mode = null, $entry_id = null) {
-			$rgb = $this->splitToDecimal($data);
+
 			$newItem = new XMLElement($this->get('element_name'), ($encode ? General::sanitize($this->prepareTableValue($data, null, $entry_id)) : $this->prepareTableValue($data, null, $entry_id)));
-			$newItem->setAttribute("r",$rgb[0]);
-			$newItem->setAttribute("g",$rgb[1]);
-			$newItem->setAttribute("b",$rgb[2]);
+			
+			//Check if we have a full color before split
+			if(strlen($data["value"]) == 7 ) {
+				$rgb = $this->splitToDecimal($data["value"]);
+				$newItem->setAttribute("r",$rgb[0]);
+				$newItem->setAttribute("g",$rgb[1]);
+				$newItem->setAttribute("b",$rgb[2]);
+				$newItem->setAttribute("has-color","Yes");
+			}else {
+				$newItem->setAttribute("has-color","No");
+			}
 			$wrapper->appendChild($newItem);
 		}
 		
