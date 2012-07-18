@@ -4,18 +4,6 @@
 	{
 		private static $assets_loaded = false;
 
-		public function about(){
-			return array('name' => 'Field: Color Chooser',
-						 'version' => '1.3.1',
-						 'release-date' => '2012-06-20',
-						 'author' => array('name' => 'Josh Nichols',
-										   'website' => 'http://www.joshnichols.com',
-										   'email' => 'mrblank@gmail.com'),
-						 'description'	=> 'A custom field extension for choosing colors.'
-				 		);
-		}
-
-
 		public function uninstall(){
 			try{
 				Symphony::Database()->query("DROP TABLE `tbl_fields_colorchooser`");

@@ -7,8 +7,8 @@
 	Class fieldColorChooser extends Field
 	{
 
-		function __construct(&$parent){
-			parent::__construct($parent);
+		function __construct(){
+			parent::__construct();
 			$this->_name = 'Color Chooser';
 			$this->_required = true;
 			$this->set('required', 'yes');
