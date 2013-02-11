@@ -4,7 +4,6 @@
 	{
 		private static $assets_loaded = false;
 
-
 		public function uninstall(){
 			try{
 				Symphony::Database()->query("DROP TABLE `tbl_fields_colorchooser`");
