@@ -24,5 +24,5 @@ See a screencast of the field in action: [http://www.vimeo.com/6062027](http://w
 The field return
 
 ```xml
-<FieldName r="decimalRedValue" g="decimalGreenValue", b="decimalBlueValue" has-color="Yes|No">#HexValue</FieldName>
+<FieldName r="decimalRedValue" g="decimalGreenValue" b="decimalBlueValue" has-color="Yes|No">#HexValue</FieldName>
 ```
