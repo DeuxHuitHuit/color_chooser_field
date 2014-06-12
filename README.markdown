@@ -4,7 +4,6 @@
 Version: 1.4    
 Maintainer: Deux Huit Huit (<http://deuxhuithuit.com>)    
 Original Author: Josh Nichols (mrblank@gmail.com)    
-Build Date: 2012-06-20    
 Requirements: Symphony 2.4    
 
 
