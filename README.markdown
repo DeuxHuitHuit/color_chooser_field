@@ -1,10 +1,11 @@
 
 # Color Chooser Field
 
-Version: 1.3.1 <br/>
-Author: Josh Nichols (mrblank@gmail.com)<br/>
-Build Date: 2012-06-20<br/>
-Requirements: Symphony 2.2<br/>
+Version: 1.4    
+Maintainer: Deux Huit Huit (<http://deuxhuithuit.com>)    
+Original Author: Josh Nichols (mrblank@gmail.com)    
+Build Date: 2012-06-20    
+Requirements: Symphony 2.4    
 
 
 ####Installation
@@ -23,4 +24,6 @@ See a screencast of the field in action: [http://www.vimeo.com/6062027](http://w
 
 The field return
 
-```<FieldName r="decimalRedValue" g="decimalGreenValue", b="decimalBlueValue" has-color="Yes|No">#HexValue</FieldName>```
+```xml
+<FieldName r="decimalRedValue" g="decimalGreenValue", b="decimalBlueValue" has-color="Yes|No">#HexValue</FieldName>
+```

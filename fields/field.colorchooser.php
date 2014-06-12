@@ -90,7 +90,7 @@
 			if( $this->get('required') != 'yes' ) $label->appendChild(new XMLElement('i', 'Optional'));
 			$label->appendChild(Widget::Input('fields'.$fieldnamePrefix.'['.$this->get('element_name').']'.$fieldnamePostfix, (strlen($value) != 0 ? $value : '#')));
 
-			if( $flagWithError != NULL ) $wrapper->appendChild(Widget::wrapFormElementWithError($label, $flagWithError));
+			if( $flagWithError != NULL ) $wrapper->appendChild(Widget::Error($label, $flagWithError));
 			else $wrapper->appendChild($label);
 		}
 
