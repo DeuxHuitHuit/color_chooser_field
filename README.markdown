@@ -1,13 +1,13 @@
 
 # Color Chooser Field
 
-Version: 1.4    
-Maintainer: Deux Huit Huit (<http://deuxhuithuit.com>)    
+Version: 1.5    
+Maintainer: Deux Huit Huit (<https://deuxhuithuit.com>)    
 Original Author: Josh Nichols (mrblank@gmail.com)    
 Requirements: Symphony 2.4    
 
 
-####Installation
+#### Installation
 
 1. Upload the folder in this archive to your Symphony 'extensions' folder and rename it to `color_chooser_field`.
 
@@ -19,10 +19,10 @@ Requirements: Symphony 2.4
 
 See a screencast of the field in action: [http://www.vimeo.com/6062027](http://www.vimeo.com/6062027)
 
-####Usage
+#### Usage
 
-The field return
+The field returns
 
 ```xml
-<FieldName r="decimalRedValue" g="decimalGreenValue" b="decimalBlueValue" has-color="Yes|No">#HexValue</FieldName>
+<field-name r="decimalRedValue" g="decimalGreenValue" b="decimalBlueValue" has-color="yes|no">#HexValue</field-name>
 ```

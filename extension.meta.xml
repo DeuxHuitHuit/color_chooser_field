@@ -40,7 +40,13 @@
 	</media>
 
 	<releases>
-		<release version="1.4" date="2014-06-12" min="2.4">
+		<release version="1.5" date="2014-06-12" min="2.4" max="2.5.x">
+			* Update for Symphony 2.5
+			* Changed the xml output a bit, to be more consistent with other fields
+				- Do not output empty values (was outputing #)
+				- lowercase yes/no.
+		</release>
+		<release version="1.4" date="2014-06-12" min="2.4" max="2.4.0">
 			* Update for Symphony 2.4
 		</release>
 		<release version="1.3.2" date="2013-07-16" min="2.2" max="2.3.6"><![CDATA[
