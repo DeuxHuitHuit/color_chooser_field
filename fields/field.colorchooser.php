@@ -158,26 +158,39 @@
 		 *	the identifier of this field entry instance. defaults to null.
 		 */
 		public function appendFormattedElement(XMLElement &$wrapper, $data, $encode = false, $mode = null, $entry_id = null) {
-
-			$newItem = new XMLElement($this->get('element_name'), ($encode ? General::sanitize($this->prepareTableValue($data, null, $entry_id)) : $this->prepareTableValue($data, null, $entry_id)));
+			if ($data == null) {
+				return;
+			}
+			
+			$value = $this->prepareTextValue($data, $entry_id);
+			if ($encode) {
+				$value = General::sanitize($value);
+			}
+			
+			$newItem = new XMLElement($this->get('element_name'), $value );
 			
 			//Check if we have a full color before split
-			if(strlen($data["value"]) == 7 ) {
+			if (strlen($data["value"]) == 7 ) {
 				$rgb = $this->splitToDecimal($data["value"]);
 				$newItem->setAttribute("r",$rgb[0]);
 				$newItem->setAttribute("g",$rgb[1]);
 				$newItem->setAttribute("b",$rgb[2]);
-				$newItem->setAttribute("has-color","Yes");
-			}else {
-				$newItem->setAttribute("has-color","No");
+				$newItem->setAttribute("has-color","yes");
+			} else {
+				$newItem->setAttribute("has-color","no");
 			}
 			$wrapper->appendChild($newItem);
 		}
 		
+		public function prepareTextValue($data, $entry_id = null) {
+			if(strlen($data["value"]) > 1 ) {
+				return $data["value"];
+			}
+			return null;
+		}
+		
 		public function createTable(){
-
 			return Symphony::Database()->query(
-
 				"CREATE TABLE IF NOT EXISTS `tbl_entries_data_".$this->get('id')."` (
 						  `id` int(11) unsigned NOT NULL auto_increment,
 						  `entry_id` int(11) unsigned NOT NULL,
