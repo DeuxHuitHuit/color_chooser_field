@@ -1,7 +1,7 @@
 
 # Color Chooser Field
 
-Version: 1.5    
+Version: 1.6    
 Maintainer: Deux Huit Huit (<https://deuxhuithuit.com>)    
 Original Author: Josh Nichols (mrblank@gmail.com)    
 Requirements: Symphony 2.4    
