@@ -40,6 +40,11 @@
 	</media>
 
 	<releases>
+		<release version="1.6" date="2015-07-30" min="2.4" max="2.6.x">
+			* Adapted default layout to settings panel
+			* Restored color preview in entries table (index view)
+			* Marked as compatible with Symphony 2.6.X
+		</release>
 		<release version="1.5" date="2014-11-04" min="2.4" max="2.5.x">
 			* Update for Symphony 2.5
 			* Changed the xml output a bit, to be more consistent with other fields

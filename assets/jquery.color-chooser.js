@@ -5,30 +5,25 @@
 	
 	$(document).ready(function() {
 		/*----Index page swatches----*/
-			// Find TDs that contain a '#'
-			$("tbody tr td:contains('#')").each(function() {
+		// Find TDs that contain a '#'
+		$("tbody tr td.field-colorchooser:contains('#')").each(function() {
 
-				var $td = $(this)
-				// Select the value of the TD
-				var td_data = $td.text()
-				// Strip out any extra spaces
-				td_data = jQuery.trim(td_data);
+			var $td = $(this)
+			// Select the value of the TD
+			var td_data = $td.text()
+			// Strip out any extra spaces
+			td_data = jQuery.trim(td_data);
 
-				// Validate hex length
-				if(td_data.length == 7 || td_data.length == 4){
-					// Add a SPAN for the color box
-					$td.prepend('<span>\&nbsp;</span>');	
-					// Add styles to the SPAN 
-					$td.children('span:first-child').css({
-						'background-color': td_data, 
-						'margin-right' : '5px',
-						'border' : 'solid 1px #eaeaea',
-						'padding' : '3px 8px'
-					});
+			// Validate hex length
+			if(td_data.length == 7 || td_data.length == 4){
+				// Remove readable hex-value
+				$td.html('');
+				// Add a span-element that's formatted as color preview
+				// Attach hex-value as title
+				$td.prepend('<span class="colorchooser-index-preview" title="'+td_data+'" style="background-color: '+td_data+';">\&nbsp;</span>');
+			}
 
-				}
-
-			});
+		});
 
 		/*----Color chooser field----*/
 		//If page has a color chooser field, call the Farbtastic function

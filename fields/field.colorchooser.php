@@ -75,14 +75,18 @@
 		}
 
 		function displaySettingsPanel(&$wrapper, $errors = NULL){
+
 			parent::displaySettingsPanel($wrapper, $errors);
-			$this->appendRequiredCheckbox($wrapper);
-			$this->appendShowColumnCheckbox($wrapper);
+			
+			/* Option Group */
+			$optgroup = new XMLElement('div', NULL, array('class' => 'two columns'));
+			$this->appendRequiredCheckbox($optgroup);
+			$this->appendShowColumnCheckbox($optgroup);
+			$wrapper->appendChild($optgroup);
+			
 		}
 
 		function displayPublishPanel(&$wrapper, $data = NULL, $flagWithError = NULL, $fieldnamePrefix = NULL, $fieldnamePostfix = NULL){
-
-			Extension_Color_Chooser_Field::appendAssets();
 
 			$value = $data['value'];
 			$label = Widget::Label($this->get('label'));
