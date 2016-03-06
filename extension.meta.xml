@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<extension id="color_chooser_field" status="released" xmlns="http://symphony-cms.com/schemas/extension/1.0">
+<extension id="color_chooser_field" status="released" xmlns="http://getsymphony.com/schemas/extension/1.0">
 	<name>Field: Color Chooser</name>
-
 	<description>Visually choose a hex color value</description>
-
 	<repo type="github">https://github.com/DeuxHuitHuit/color_chooser_field</repo>
-
-	<url type="discuss">http://symphony-cms.com/discuss/thread/21375/</url>
+	<url type="discuss">http://getsymphony.com/discuss/thread/21375/</url>
 
 	<types>
 		<type>Field Types</type>
@@ -16,7 +13,7 @@
 	<authors>
 		<author>
 			<name github="DeuxHuitHuit" symphony="nitriques" twitter="DeuxHuitHuit">Deux Huit Huit</name>
-			<website>http://deuxhuithuit.com</website>
+			<website>https://deuxhuithuit.com</website>
 		</author>
 		<author>
 			<name github="MrBlank" symphony="MrBlank">Josh Nichols</name>
@@ -29,18 +26,20 @@
 		</author>
 		<author>
 			<name github="PascalPiche" symphony="">Pascal Piche</name>
-			<website>http://deuxhuithuit.com</website>
+			<website>https://deuxhuithuit.com</website>
 		</author>
 	</authors>
-
 	<media>
 		<item type="image" url="http://symphonyextensions.com/MrBlank/color_chooser_field/media/color_chooser_field.png">
 			Field: Color Chooser: Visually choose a hex color value
 		</item>
 	</media>
-
 	<releases>
-		<release version="1.6" date="2015-07-30" min="2.4" max="2.6.x">
+		<release version="1.6.1" date="2016-03-06" min="2.4" max="2.x.x">
+			* Updated compatibility infos
+			* Fixed broken links in publish table view
+		</release>
+		<release version="1.6.0" date="2015-07-30" min="2.4" max="2.6.x">
 			* Adapted default layout to settings panel
 			* Restored color preview in entries table (index view)
 			* Marked as compatible with Symphony 2.6.X
@@ -64,8 +63,6 @@
 		<release version="1.3" date="2012-05-24" min="2.3"><![CDATA[
 			* Cleanup & Symphony 2.3 compatibility.
 		]]></release>
-
 		<release version="1.2.1" date="2010-07-19" min="2.0.5" />
 	</releases>
-
 </extension>
