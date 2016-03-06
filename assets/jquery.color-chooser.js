@@ -15,12 +15,27 @@
 			td_data = jQuery.trim(td_data);
 
 			// Validate hex length
-			if(td_data.length == 7 || td_data.length == 4){
+			if(td_data.length == 7 || td_data.length == 4) {
+				var link = $td.find('a');
+				var tag = !!link.length ? 'a' : 'span';
+				var href = link.attr('href');
+				var element = $('<' + tag + '>')
+					.attr('title', td_data)
+					.attr('class', 'colorchooser-index-preview')
+					.css('background-color', td_data)
+					.html('&nbsp;');
+
+				// set the link's href
+				if (!!href) {
+					element.attr('href', href);
+				}
+
 				// Remove readable hex-value
 				$td.html('');
+
 				// Add a span-element that's formatted as color preview
 				// Attach hex-value as title
-				$td.prepend('<span class="colorchooser-index-preview" title="'+td_data+'" style="background-color: '+td_data+';">\&nbsp;</span>');
+				$td.prepend(element);
 			}
 
 		});
