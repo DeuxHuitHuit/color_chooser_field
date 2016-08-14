@@ -147,6 +147,31 @@
 			$brightness = round( (.2126 * $r + .7152 * $g + .0722 * $b) / 255 * 100 );
 			return $brightness;
 		}
+		
+		public function rgb2cmyk($r,$g,$b) {
+
+			$r = $r / 255;
+			$g = $g / 255;
+			$b = $b / 255;
+
+			$k = min(array( 1 - $r, 1 - $g, 1 - $b));
+			if ($k < 1) {
+				$c = (1 - $r - $k) / (1 - $k);
+				$m = (1 - $g - $k) / (1 - $k);
+				$y = (1 - $b - $k) / (1 - $k);
+			} else {
+				$c = .3;
+				$m = .3;
+				$y = .3;
+			}
+
+			$cmyk[0] = round($c * 100);
+			$cmyk[1] = round($m * 100);
+			$cmyk[2] = round($y * 100);
+			$cmyk[3] = round($k * 100);
+
+			return $cmyk;
+		}
 		/**
 		 * Append the formatted XML output of this field as utilized as a data source.
 		 *
@@ -181,10 +206,15 @@
 			//Check if we have a full color before split
 			if (strlen($data["value"]) == 7 ) {
 				$rgb = $this->splitToDecimal($data["value"]);
+				$cmyk = $this->rgb2cmyk($rgb[0],$rgb[1],$rgb[2]);
 				$brightness = $this->rgb2brightness($rgb[0],$rgb[1],$rgb[2]);
 				$newItem->setAttribute("r",$rgb[0]);
 				$newItem->setAttribute("g",$rgb[1]);
 				$newItem->setAttribute("b",$rgb[2]);
+				$newItem->setAttribute("c",$cmyk[0]);
+				$newItem->setAttribute("m",$cmyk[1]);
+				$newItem->setAttribute("y",$cmyk[2]);
+				$newItem->setAttribute("k",$cmyk[3]);
 				$newItem->setAttribute("brightness",$brightness);
 				$newItem->setAttribute("has-color","yes");
 			} else {
