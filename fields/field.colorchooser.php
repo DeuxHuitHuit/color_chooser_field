@@ -77,13 +77,13 @@
 		function displaySettingsPanel(&$wrapper, $errors = NULL){
 
 			parent::displaySettingsPanel($wrapper, $errors);
-			
+
 			/* Option Group */
 			$optgroup = new XMLElement('div', NULL, array('class' => 'two columns'));
 			$this->appendRequiredCheckbox($optgroup);
 			$this->appendShowColumnCheckbox($optgroup);
 			$wrapper->appendChild($optgroup);
-			
+
 		}
 
 		function displayPublishPanel(&$wrapper, $data = NULL, $flagWithError = NULL, $fieldnamePrefix = NULL, $fieldnamePostfix = NULL){
@@ -135,12 +135,17 @@
 		public function getDecimalValue($data) {
 			return hexdec($data);
 		}
-		
+
 		public function splitToDecimal($data) {
 			$rgb[0] = $this->getDecimalValue(substr($data,1,2));
 			$rgb[1] = $this->getDecimalValue(substr($data,3,2));
 			$rgb[2] = $this->getDecimalValue(substr($data,5,2));
 			return $rgb;
+		}
+
+		public function rgb2brightness($r,$g,$b) {
+			$brightness = round( (.2126 * $r + .7152 * $g + .0722 * $b) / 255 * 100 );
+			return $brightness;
 		}
 		/**
 		 * Append the formatted XML output of this field as utilized as a data source.
@@ -165,34 +170,36 @@
 			if ($data == null) {
 				return;
 			}
-			
+
 			$value = $this->prepareTextValue($data, $entry_id);
 			if ($encode) {
 				$value = General::sanitize($value);
 			}
-			
+
 			$newItem = new XMLElement($this->get('element_name'), $value );
-			
+
 			//Check if we have a full color before split
 			if (strlen($data["value"]) == 7 ) {
 				$rgb = $this->splitToDecimal($data["value"]);
+				$brightness = $this->rgb2brightness($rgb[0],$rgb[1],$rgb[2]);
 				$newItem->setAttribute("r",$rgb[0]);
 				$newItem->setAttribute("g",$rgb[1]);
 				$newItem->setAttribute("b",$rgb[2]);
+				$newItem->setAttribute("brightness",$brightness);
 				$newItem->setAttribute("has-color","yes");
 			} else {
 				$newItem->setAttribute("has-color","no");
 			}
 			$wrapper->appendChild($newItem);
 		}
-		
+
 		public function prepareTextValue($data, $entry_id = null) {
 			if(strlen($data["value"]) > 1 ) {
 				return $data["value"];
 			}
 			return null;
 		}
-		
+
 		public function createTable(){
 			return Symphony::Database()->query(
 				"CREATE TABLE IF NOT EXISTS `tbl_entries_data_".$this->get('id')."` (
