@@ -35,6 +35,10 @@
 		</item>
 	</media>
 	<releases>
+		<release version="1.6.2" date="2016-08-15" min="2.4" max="2.x.x">
+			* Supported on PHP 7
+			* Fixed params to fit parent
+		</release>
 		<release version="1.6.1" date="2016-03-06" min="2.4" max="2.x.x">
 			* Updated compatibility infos
 			* Fixed broken links in publish table view
