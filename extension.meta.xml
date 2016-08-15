@@ -3,7 +3,7 @@
 	<name>Field: Color Chooser</name>
 	<description>Visually choose a hex color value</description>
 	<repo type="github">https://github.com/DeuxHuitHuit/color_chooser_field</repo>
-	<url type="discuss">http://getsymphony.com/discuss/thread/21375/</url>
+	<url type="discuss">https://www.getsymphony.com/discuss/thread/21375/</url>
 
 	<types>
 		<type>Field Types</type>
@@ -35,6 +35,10 @@
 		</item>
 	</media>
 	<releases>
+		<release version="1.7.0" date="2017-06-27" min="2.4" max="2.x.x">
+			* Supported on PHP 7
+			* Added CMYK and brightness values
+		</release>
 		<release version="1.6.1" date="2016-03-06" min="2.4" max="2.x.x">
 			* Updated compatibility infos
 			* Fixed broken links in publish table view
