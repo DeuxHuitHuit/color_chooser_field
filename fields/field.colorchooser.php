@@ -74,7 +74,7 @@
 			return $groups;
 		}
 
-		function displaySettingsPanel(&$wrapper, $errors = NULL){
+		function displaySettingsPanel(XMLElement &$wrapper, $errors = NULL){
 
 			parent::displaySettingsPanel($wrapper, $errors);
 			
@@ -86,7 +86,7 @@
 			
 		}
 
-		function displayPublishPanel(&$wrapper, $data = NULL, $flagWithError = NULL, $fieldnamePrefix = NULL, $fieldnamePostfix = NULL){
+		function displayPublishPanel(XMLElement &$wrapper, $data = NULL, $flagWithError = NULL, $fieldnamePrefix = NULL, $fieldnamePostfix = NULL, $entry_id = NULL){
 
 			$value = $data['value'];
 			$label = Widget::Label($this->get('label'));
@@ -98,7 +98,7 @@
 			else $wrapper->appendChild($label);
 		}
 
-		public function displayDatasourceFilterPanel(&$wrapper, $data = NULL, $errors = NULL, $fieldnamePrefix = NULL, $fieldnamePostfix = NULL){
+		public function displayDatasourceFilterPanel(XMLElement &$wrapper, $data = NULL, $errors = NULL, $fieldnamePrefix = NULL, $fieldnamePostfix = NULL){
 			$wrapper->appendChild(new XMLElement('h4', $this->get('label').' <i>'.$this->Name().'</i>'));
 			$label = Widget::Label('Value');
 			$label->appendChild(Widget::Input('fields[filter]'.($fieldnamePrefix ? '['.$fieldnamePrefix.']' : '').'['.$this->get('id').']'.($fieldnamePostfix ? '['.$fieldnamePostfix.']' : ''), ($data ? General::sanitize($data) : NULL)));
