@@ -13,7 +13,7 @@ Original Author: Josh Nichols (mrblank@gmail.com)
 
 3. You can now add a "Color Chooser" field to your sections.
 
-4. On the entry edit screen, it uses the Farbtastic Color Picker [http://acko.net/dev/farbtastic](http://acko.net/dev/farbtastic) to visually select a color and place its hex value into the field. 
+4. On the entry edit screen, it uses the Farbtastic Color Picker [http://acko.net/dev/farbtastic](http://acko.net/dev/farbtastic) to visually select a color and place its hex value into the field.
 
 See a screencast of the field in action: [http://www.vimeo.com/6062027](http://www.vimeo.com/6062027)
 
@@ -22,5 +22,5 @@ See a screencast of the field in action: [http://www.vimeo.com/6062027](http://w
 The field returns
 
 ```xml
-<field-name r="decimalRedValue" g="decimalGreenValue" b="decimalBlueValue" has-color="yes|no">#HexValue</field-name>
+<field-name r="decimalRedValue" g="decimalGreenValue" b="decimalBlueValue" c="printCyanValue" m="printMagentaValue" y="printYellowValue" k="printBlackValue" brightness="0to100brightnessValue" has-color="yes|no">#HexValue</field-name>
 ```
