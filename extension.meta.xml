@@ -31,10 +31,13 @@
 	</authors>
 	<media>
 		<item type="image" url="http://symphonyextensions.com/MrBlank/color_chooser_field/media/color_chooser_field.png">
-			Field: Color Chooser: Visually choose a hex color value
+			Field: Color Chooser: Visually choose a hex/rgb/hsl color value
 		</item>
 	</media>
 	<releases>
+		<release version="1.7.1" date="2017-06-27" min="2.4" max="2.x.x">
+			* Fixed issue with color picker when out of bounds
+		</release>
 		<release version="1.7.0" date="2017-06-27" min="2.4" max="2.x.x">
 			* Supported on PHP 7
 			* Added CMYK and brightness values

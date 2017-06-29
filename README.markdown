@@ -1,6 +1,6 @@
 # Color Chooser Field
 
-Version: 1.6.x    
+Version: 1.7.x    
 Maintainer: Deux Huit Huit (<https://deuxhuithuit.com>)    
 Original Author: Josh Nichols (mrblank@gmail.com)    
 
