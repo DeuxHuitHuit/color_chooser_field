@@ -165,6 +165,9 @@
 	
 	    // Check which area is being dragged
 	    var pos = fb.widgetCoords(event);
+	    if (isNaN(pos.x) || isNaN(pos.y)) {
+	        return false;
+	    }
 	    fb.circleDrag = Math.max(Math.abs(pos.x), Math.abs(pos.y)) * 2 > fb.square;
 	
 	    // Process
@@ -178,6 +181,9 @@
 	  fb.mousemove = function (event) {
 	    // Get coordinates relative to color picker center
 	    var pos = fb.widgetCoords(event);
+	    if (isNaN(pos.x) || isNaN(pos.y)) {
+	        return false;
+	    }
 	
 	    // Set new HSL parameters
 	    if (fb.circleDrag) {
