@@ -74,19 +74,19 @@
 			return $groups;
 		}
 
-		function displaySettingsPanel(XMLElement &$wrapper, $errors = NULL){
+		function displaySettingsPanel(XMLElement &$wrapper, $errors = null){
 
 			parent::displaySettingsPanel($wrapper, $errors);
 
 			/* Option Group */
-			$optgroup = new XMLElement('div', NULL, array('class' => 'two columns'));
+			$optgroup = new XMLElement('div', null, array('class' => 'two columns'));
 			$this->appendRequiredCheckbox($optgroup);
 			$this->appendShowColumnCheckbox($optgroup);
 			$wrapper->appendChild($optgroup);
 
 		}
 
-		function displayPublishPanel(XMLElement &$wrapper, $data = NULL, $flagWithError = NULL, $fieldnamePrefix = NULL, $fieldnamePostfix = NULL, $entry_id = NULL){
+		function displayPublishPanel(XMLElement &$wrapper, $data = null, $flagWithError = null, $fieldnamePrefix = null, $fieldnamePostfix = null, $entry_id = null){
 
 			$value = $data['value'];
 			$label = Widget::Label($this->get('label'));
@@ -94,22 +94,22 @@
 			if( $this->get('required') != 'yes' ) $label->appendChild(new XMLElement('i', 'Optional'));
 			$label->appendChild(Widget::Input('fields'.$fieldnamePrefix.'['.$this->get('element_name').']'.$fieldnamePostfix, (strlen($value) != 0 ? $value : '#')));
 
-			if( $flagWithError != NULL ) $wrapper->appendChild(Widget::Error($label, $flagWithError));
+			if( $flagWithError != null ) $wrapper->appendChild(Widget::Error($label, $flagWithError));
 			else $wrapper->appendChild($label);
 		}
 
-		public function displayDatasourceFilterPanel(XMLElement &$wrapper, $data = NULL, $errors = NULL, $fieldnamePrefix = NULL, $fieldnamePostfix = NULL){
+		public function displayDatasourceFilterPanel(XMLElement &$wrapper, $data = null, $errors = null, $fieldnamePrefix = null, $fieldnamePostfix = null){
 			$wrapper->appendChild(new XMLElement('h4', $this->get('label').' <i>'.$this->Name().'</i>'));
 			$label = Widget::Label('Value');
-			$label->appendChild(Widget::Input('fields[filter]'.($fieldnamePrefix ? '['.$fieldnamePrefix.']' : '').'['.$this->get('id').']'.($fieldnamePostfix ? '['.$fieldnamePostfix.']' : ''), ($data ? General::sanitize($data) : NULL)));
+			$label->appendChild(Widget::Input('fields[filter]'.($fieldnamePrefix ? '['.$fieldnamePrefix.']' : '').'['.$this->get('id').']'.($fieldnamePostfix ? '['.$fieldnamePostfix.']' : ''), ($data ? General::sanitize($data) : null)));
 			$wrapper->appendChild($label);
 
 			$wrapper->appendChild(new XMLElement('p', 'Accepts a 6 character color hex value beginning with \'#\'.', array('class' => 'help')));
 
 		}
 
-		public function checkPostFieldData($data, &$message, $entry_id = NULL){
-			$message = NULL;
+		public function checkPostFieldData($data, &$message, $entry_id = null){
+			$message = null;
 
 			if( $this->get('required') == 'yes' && strlen($data) == 0 ){
 				$message = "This is a required field.";
@@ -233,9 +233,9 @@
 		public function createTable(){
 			return Symphony::Database()->query(
 				"CREATE TABLE IF NOT EXISTS `tbl_entries_data_".$this->get('id')."` (
-						  `id` int(11) unsigned NOT NULL auto_increment,
-						  `entry_id` int(11) unsigned NOT NULL,
-						  `value` varchar(32) default NULL,
+						  `id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+						  `entry_id` INT(11) UNSIGNED NOT NULL,
+						  `value` VARCHAR(32) DEFAULT NULL,
 						  PRIMARY KEY  (`id`),
 						  KEY `entry_id` (`entry_id`),
 						  KEY `value` (`value`)
