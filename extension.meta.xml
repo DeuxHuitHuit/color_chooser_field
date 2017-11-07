@@ -35,6 +35,9 @@
 		</item>
 	</media>
 	<releases>
+		<release version="1.7.2" date="2017-11-06" min="2.4" max="2.x.x">
+			* PHP 7 Support
+		</release>
 		<release version="1.7.1" date="2017-06-27" min="2.4" max="2.x.x">
 			* Fixed issue with color picker when out of bounds
 		</release>
