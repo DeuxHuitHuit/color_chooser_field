@@ -11,6 +11,7 @@
 			parent::__construct();
 			$this->_name = 'Color Chooser';
 			$this->_required = true;
+			$this->entryQueryFieldAdapter = new EntryQueryFieldAdapter($this);
 			$this->set('required', 'yes');
 		}
 
