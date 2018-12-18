@@ -50,8 +50,6 @@
 			return Symphony::Database()
 				->create('tbl_fields_colorchooser')
 				->ifNotExists()
-				->charset('utf8')
-				->collate('utf8_unicode_ci')
 				->fields([
 					'id' => [
 						'type' => 'int(11)',
