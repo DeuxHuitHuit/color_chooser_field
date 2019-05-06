@@ -47,12 +47,22 @@
 		 */
 
 		public function install(){
-			return Symphony::Database()->query("CREATE TABLE `tbl_fields_colorchooser` (
-			  `id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
-			  `field_id` INT(11) UNSIGNED NOT NULL,
-			  PRIMARY KEY  (`id`),
-			  UNIQUE KEY `field_id` (`field_id`)
-			) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;");
+			return Symphony::Database()
+				->create('tbl_fields_colorchooser')
+				->ifNotExists()
+				->fields([
+					'id' => [
+						'type' => 'int(11)',
+						'auto' => true,
+					],
+					'field_id' =>  'int(11)',
+				])
+				->keys([
+					'id' => 'primary',
+					'field_id' => 'unique',
+				])
+				->execute()
+				->success();
 		}
 
 		/*
@@ -61,10 +71,11 @@
 		 */
 
 		public function uninstall() {
-			try {
-				Symphony::Database()->query("DROP TABLE `tbl_fields_colorchooser`");
-			} catch( Exception $e ){}
-			return true;
+			return Symphony::Database()
+				->drop('tbl_fields_colorchooser')
+				->ifExists()
+				->execute()
+				->success();
 		}
 	}
 

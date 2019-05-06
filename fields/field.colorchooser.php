@@ -11,6 +11,7 @@
 			parent::__construct();
 			$this->_name = 'Color Chooser';
 			$this->_required = true;
+			$this->entryQueryFieldAdapter = new EntryQueryFieldAdapter($this);
 			$this->set('required', 'yes');
 		}
 
@@ -46,9 +47,17 @@
 
 			$fields['field_id'] = $id;
 
-			Symphony::Database()->query("DELETE FROM `tbl_fields_".$this->handle()."` WHERE `field_id` = '$id' LIMIT 1");
-			return Symphony::Database()->insert($fields, 'tbl_fields_'.$this->handle());
-
+			Symphony::Database()
+				->delete('tbl_fields_' . $this->handle())
+				->where(['field_id' => $id])
+				->limit(1)
+				->execute()
+				->success();
+			return Symphony::Database()
+				->insert('tbl_fields_' . $this->handle())
+				->values($fields)
+				->execute()
+				->success();
 		}
 
 		function groupRecords($records){
@@ -68,7 +77,6 @@
 				}
 
 				$groups[$this->get('element_name')][$value]['records'][] = $r;
-
 			}
 
 			return $groups;
@@ -147,7 +155,7 @@
 			$brightness = round( (.2126 * $r + .7152 * $g + .0722 * $b) / 255 * 100 );
 			return $brightness;
 		}
-		
+
 		public function rgb2cmyk($r,$g,$b) {
 
 			$r = $r / 255;
@@ -231,17 +239,27 @@
 		}
 
 		public function createTable(){
-			return Symphony::Database()->query(
-				"CREATE TABLE IF NOT EXISTS `tbl_entries_data_".$this->get('id')."` (
-						  `id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
-						  `entry_id` INT(11) UNSIGNED NOT NULL,
-						  `value` VARCHAR(32) DEFAULT NULL,
-						  PRIMARY KEY  (`id`),
-						  KEY `entry_id` (`entry_id`),
-						  KEY `value` (`value`)
-						) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;"
-
-			);
+			return Symphony::Database()
+				->create('tbl_entries_data_' . $this->get('id'))
+				->ifNotExists()
+				->fields([
+					'id' => [
+						'type' => 'int(11)',
+						'auto' => true,
+					],
+					'entry_id' => 'int(11)',
+					'value' => [
+						'type' => 'varchar(32)',
+						'null' => true,
+					],
+				])
+				->keys([
+					'id' => 'primary',
+					'entry_id' => 'key',
+					'value' => 'key',
+				])
+				->execute()
+				->success();
 		}
 
 	}
